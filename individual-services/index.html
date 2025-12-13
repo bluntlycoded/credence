@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Individual Tax Services | Credence Taxfiling</title>
+
+    <meta name="description" content="Professional individual tax services including U.S. income tax returns, expat tax filing, ITIN assistance, and tax planning.">
+    <meta name="author" content="Credence Taxfiling">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A1628',
+                            800: '#111D32',
+                            700: '#1A2942',
+                            600: '#243552',
+                        },
+                        gold: {
+                            500: '#C9A84B',
+                            400: '#D4B85C',
+                            300: '#E0C96E',
+                        },
+                        cream: '#FAFAF8',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        * { scroll-behavior: smooth; }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0A1628 0%, #1A2942 50%, #0A1628 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #C9A84B 0%, #E0C96E 50%, #C9A84B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C9A84B;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown { position: relative; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 280px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(10,22,40,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 50;
+            padding: 8px 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #243552;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #FAFAF8;
+            color: #C9A84B;
+            padding-left: 24px;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(10,22,40,0.15);
+        }
+    </style>
+</head>
+
+<body class="font-body bg-cream text-navy-900 antialiased">
+
+<!-- TOP BAR -->
+<div class="bg-navy-900 text-white py-2 hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between text-sm">
+        <div class="flex gap-6">
+            <a href="mailto:wecare@credencetaxfiling.com">wecare@credencetaxfiling.com</a>
+            <a href="tel:+19162414499">+1 (916) 241-4499</a>
+        </div>
+        <div class="flex gap-4">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+                <span class="font-display text-gold-500 text-xl font-bold">C</span>
+            </div>
+            <div>
+                <span class="font-display text-xl font-semibold">Credence</span>
+                <span class="block text-xs text-navy-600 uppercase">Taxfiling</span>
+            </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about/" class="nav-link">About Us</a>
+
+            <div class="dropdown">
+                <button class="nav-link flex items-center gap-1">
+                    Services
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="../individual-services/" class="dropdown-item font-medium text-gold-500">Individual Services</a>
+                    <a href="../business-services/" class="dropdown-item">Business Services</a>
+                </div>
+            </div>
+
+            <a href="../faq/" class="nav-link">FAQs</a>
+            <a href="../contact/" class="nav-link">Contact</a>
+        </div>
+
+        <div class="hidden lg:flex gap-4">
+            <a href="../contact/" class="bg-navy-900 text-white px-6 py-3 rounded-xl">Get Started</a>
+        </div>
+
+        <!-- Mobile Button -->
+        <button id="menu-btn" class="lg:hidden">☰</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-gradient py-24 text-center text-white">
+    <h1 class="font-display text-5xl font-bold mb-6">
+        Individual <span class="gradient-text">Tax Services</span>
+    </h1>
+    <p class="max-w-3xl mx-auto text-white/80 text-lg">
+        Expert personal tax solutions designed for individuals, families, and expats.
+    </p>
+</section>
+
+<!-- SERVICES -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">U.S. Income Tax Returns</h3>
+            <p class="text-navy-600">Accurate federal & state filing with maximum deductions.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">Expat Tax Filing</h3>
+            <p class="text-navy-600">Foreign income, FBAR, FATCA handled correctly.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">ITIN Assistance</h3>
+            <p class="text-navy-600">New applications and renewals with IRS compliance.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">Tax Planning</h3>
+            <p class="text-navy-600">Strategic planning to reduce future tax burden.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">IRS Notices</h3>
+            <p class="text-navy-600">Professional response to audits & IRS letters.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover">
+            <h3 class="font-display text-xl font-semibold mb-3">Back Taxes</h3>
+            <p class="text-navy-600">Amended and prior-year tax filing support.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-navy-900 py-20 text-center text-white">
+    <h2 class="font-display text-4xl font-bold mb-6">Ready to Get Started?</h2>
+    <a href="../contact/" class="bg-gold-500 text-navy-900 px-10 py-4 rounded-xl font-semibold">
+        Free Consultation
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-white/70">
+        © 2025 Credence Taxfiling. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>

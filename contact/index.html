@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Credence Taxfiling for expert tax preparation services. Get a free consultation, call us, or send a message. We're here to help with all your tax needs.">
+    <meta name="keywords" content="contact tax filing, tax consultation, tax help, tax preparation contact, tax services phone">
+    <meta name="author" content="Credence Taxfiling">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Us | Credence Taxfiling">
+    <meta property="og:description" content="Get in touch with our certified tax professionals. Free consultation available. Call, email, or send us a message.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://credencetaxfiling.com/contact/">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://credencetaxfiling.com/contact/">
+    
+    <title>Contact Us | Credence Taxfiling - Get Expert Tax Help</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Schema.org Contact Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Credence Taxfiling",
+        "description": "Contact page for Credence Taxfiling services",
+        "url": "https://credencetaxfiling.com/contact/",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Credence Taxfiling",
+            "telephone": "+1-916-241-4499",
+            "email": "wecare@credencetaxfiling.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-916-241-4499",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Hindi"]
+            }
+        }
+    }
+    </script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A1628',
+                            800: '#111D32',
+                            700: '#1A2942',
+                            600: '#243552',
+                        },
+                        gold: {
+                            500: '#C9A84B',
+                            400: '#D4B85C',
+                            300: '#E0C96E',
+                        },
+                        cream: '#FAFAF8',
+                        sage: '#4A7C59',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        * { scroll-behavior: smooth; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #C9A84B 0%, #E0C96E 50%, #C9A84B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0A1628 0%, #1A2942 50%, #0A1628 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C9A84B;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .gold-border {
+            border: 1px solid rgba(201, 168, 75, 0.3);
+        }
+        
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        /* Dropdown styles */
+        .dropdown { position: relative; }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 280px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(10, 22, 40, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 50;
+            padding: 8px 0;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #243552;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: #FAFAF8;
+            color: #C9A84B;
+            padding-left: 24px;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Form styles */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #C9A84B;
+            box-shadow: 0 0 0 3px rgba(201, 168, 75, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #9CA3AF;
+        }
+        
+        /* Contact card hover */
+        .contact-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(10, 22, 40, 0.12);
+        }
+        
+        /* Success message */
+        .success-message {
+            animation: slideUp 0.5s ease-out forwards;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="font-body bg-cream text-navy-900 antialiased">
+    
+    <!-- Top Bar -->
+    <div class="bg-navy-900 text-white py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
+            <div class="flex items-center gap-6">
+                <a href="mailto:wecare@credencetaxfiling.com" class="flex items-center gap-2 hover:text-gold-500 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    wecare@credencetaxfiling.com
+                </a>
+                <a href="tel:+19162414499" class="flex items-center gap-2 hover:text-gold-500 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    +1 (916) 241-4499
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://www.facebook.com/credencetaxfiling/" target="_blank" class="hover:text-gold-500 transition-colors" aria-label="Facebook">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/credence_taxfiling/" target="_blank" class="hover:text-gold-500 transition-colors" aria-label="Instagram">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://linkedin.com/company/credence-taxfiling" target="_blank" class="hover:text-gold-500 transition-colors" aria-label="LinkedIn">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+                        <span class="font-display text-gold-500 text-xl font-bold">C</span>
+                    </div>
+                    <div>
+                        <span class="font-display text-xl font-semibold text-navy-900">Credence</span>
+                        <span class="block text-xs text-navy-600 tracking-wider uppercase">Taxfiling</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="../index.html" class="nav-link text-navy-600 hover:text-navy-900 transition-colors">Home</a>
+                    <a href="../about/" class="nav-link text-navy-600 hover:text-navy-900 transition-colors">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="dropdown">
+                        <button class="nav-link text-navy-600 hover:text-navy-900 transition-colors flex items-center gap-1">
+                            Services
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="px-4 py-2 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-navy-600 uppercase tracking-wider">Individual</span>
+                            </div>
+                            <a href="../individual-services/" class="dropdown-item font-medium">All Individual Services</a>
+                            <a href="../individual-services/#income-tax" class="dropdown-item">US Individual Income Tax Returns</a>
+                            <a href="../individual-services/#expat-tax" class="dropdown-item">US Expat Tax Returns</a>
+                            <a href="../individual-services/#itin" class="dropdown-item">ITIN Assistance</a>
+                            <div class="px-4 py-2 border-b border-t border-gray-100 mt-2">
+                                <span class="text-xs font-semibold text-navy-600 uppercase tracking-wider">Business</span>
+                            </div>
+                            <a href="../business-services/" class="dropdown-item font-medium">All Business Services</a>
+                            <a href="../business-services/#incorporation" class="dropdown-item">Business Incorporation</a>
+                            <a href="../business-services/#tax-planning" class="dropdown-item">Business Tax Planning</a>
+                        </div>
+                    </div>
+                    
+                    <a href="../faq/" class="nav-link text-navy-600 hover:text-navy-900 transition-colors">FAQs</a>
+                    <a href="../contact/" class="nav-link text-navy-900 font-medium">Contact</a>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://crm.credencetaxfiling.com/" class="text-navy-600 hover:text-navy-900 font-medium transition-colors">Login</a>
+                    <a href="../contact/" class="bg-navy-900 text-white px-6 py-3 rounded-xl font-medium hover:bg-navy-800 transition-all hover:shadow-lg">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-navy-900" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 lg:hidden">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-display text-xl font-semibold text-navy-900">Menu</span>
+                <button id="close-menu-btn" class="p-2 text-navy-600" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="space-y-4">
+                <a href="../index.html" class="block py-3 text-navy-600 hover:text-navy-900 border-b border-gray-100">Home</a>
+                <a href="../about/" class="block py-3 text-navy-600 hover:text-navy-900 border-b border-gray-100">About Us</a>
+                <a href="../individual-services/" class="block py-3 text-navy-600 hover:text-navy-900 border-b border-gray-100">Individual Services</a>
+                <a href="../business-services/" class="block py-3 text-navy-600 hover:text-navy-900 border-b border-gray-100">Business Services</a>
+                <a href="../faq/" class="block py-3 text-navy-600 hover:text-navy-900 border-b border-gray-100">FAQs</a>
+                <a href="../contact/" class="block py-3 text-navy-900 font-medium border-b border-gray-100">Contact</a>
+            </nav>
+            <div class="mt-8 space-y-4">
+                <a href="https://crm.credencetaxfiling.com/" class="block w-full text-center py-3 border-2 border-navy-900 text-navy-900 rounded-xl font-medium hover:bg-navy-900 hover:text-white transition-all">
+                    Login
+                </a>
+                <a href="../contact/" class="block w-full text-center py-3 bg-gold-500 text-navy-900 rounded-xl font-medium hover:bg-gold-400 transition-all">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="menu-overlay" class="fixed inset-0 bg-navy-900/50 z-40 hidden lg:hidden"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient relative overflow-hidden">
+        <div class="absolute inset-0 noise-overlay"></div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-24">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
+                    <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="text-sm text-gold-300 font-medium">We're Here to Help</span>
+                </div>
+                
+                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6 text-white animate-slide-up">
+                    Get in <span class="gradient-text">Touch</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto animate-slide-up stagger-1">
+                    Have questions about our tax services? Need help with your filing? Our team of certified professionals is ready to assist you.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Cards Section -->
+    <section class="py-12 bg-white relative -mt-8 z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Phone Card -->
+                <a href="tel:+19162414499" class="contact-card bg-cream rounded-2xl p-6 text-center gold-border group">
+                    <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-900 mb-2">Call Us</h3>
+                    <p class="text-gold-500 font-semibold text-lg">+1 (916) 241-4499</p>
+                    <p class="text-gray-500 text-sm mt-1">Mon-Fri: 9AM - 6PM EST</p>
+                </a>
+                
+                <!-- Email Card -->
+                <a href="mailto:wecare@credencetaxfiling.com" class="contact-card bg-cream rounded-2xl p-6 text-center gold-border group">
+                    <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-900 mb-2">Email Us</h3>
+                    <p class="text-gold-500 font-semibold">wecare@credencetaxfiling.com</p>
+                    <p class="text-gray-500 text-sm mt-1">We reply within 24 hours</p>
+                </a>
+                
+                <!-- Schedule Card -->
+                <div class="contact-card bg-cream rounded-2xl p-6 text-center gold-border group cursor-pointer" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})">
+                    <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-900 mb-2">Schedule Consultation</h3>
+                    <p class="text-gold-500 font-semibold">Free Consultation</p>
+                    <p class="text-gray-500 text-sm mt-1">Book a call with our experts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-cream" id="contact-form">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Form -->
+                <div>
+                    <span class="inline-block text-gold-500 font-semibold tracking-wider uppercase text-sm mb-4">Send Us a Message</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-6">
+                        Let's Start Your Tax Journey
+                    </h2>
+                    <p class="text-gray-600 mb-8">
+                        Fill out the form below and one of our certified tax professionals will get back to you within 24 hours.
+                    </p>
+                    
+                    <form id="contactForm" class="space-y-6">
+                        <!-- Name Fields -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-navy-900 mb-2">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-navy-900 mb-2">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none" placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <!-- Email & Phone -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-navy-900 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-navy-900 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none" placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <!-- Service Type -->
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-navy-900 mb-2">Service Interested In *</label>
+                            <select id="service" name="service" required class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select a service</option>
+                                <optgroup label="Individual Services">
+                                    <option value="individual-tax">US Individual Income Tax Returns</option>
+                                    <option value="expat-tax">US Expat Tax Returns</option>
+                                    <option value="itin">ITIN Assistance</option>
+                                    <option value="tax-consultation">Tax Consultation</option>
+                                    <option value="fbar-fatca">FBAR & FATCA Filing</option>
+                                    <option value="tax-audit">Tax Audit Support</option>
+                                </optgroup>
+                                <optgroup label="Business Services">
+                                    <option value="business-incorporation">Business Incorporation</option>
+                                    <option value="business-tax">Business Tax Returns</option>
+                                    <option value="tax-planning">Tax Planning</option>
+                                    <option value="payroll">Payroll Tax Services</option>
+                                    <option value="irs-audit">IRS Audit Representation</option>
+                                </optgroup>
+                                <option value="other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Filing Status -->
+                        <div>
+                            <label for="filingStatus" class="block text-sm font-medium text-navy-900 mb-2">Filing Status</label>
+                            <select id="filingStatus" name="filingStatus" class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select your filing status</option>
+                                <option value="single">Single</option>
+                                <option value="married-joint">Married Filing Jointly</option>
+                                <option value="married-separate">Married Filing Separately</option>
+                                <option value="head-household">Head of Household</option>
+                                <option value="widow">Qualifying Widow(er)</option>
+                                <option value="business">Business / Not Applicable</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-navy-900 mb-2">Your Message *</label>
+                            <textarea id="message" name="message" rows="4" required class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none resize-none" placeholder="Tell us about your tax situation or questions..."></textarea>
+                        </div>
+                        
+                        <!-- Preferred Contact -->
+                        <div>
+                            <label class="block text-sm font-medium text-navy-900 mb-3">Preferred Contact Method</label>
+                            <div class="flex flex-wrap gap-4">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="contactMethod" value="email" checked class="w-4 h-4 text-gold-500 border-gray-300 focus:ring-gold-500">
+                                    <span class="text-gray-600">Email</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="contactMethod" value="phone" class="w-4 h-4 text-gold-500 border-gray-300 focus:ring-gold-500">
+                                    <span class="text-gray-600">Phone</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="contactMethod" value="either" class="w-4 h-4 text-gold-500 border-gray-300 focus:ring-gold-500">
+                                    <span class="text-gray-600">Either</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" id="submitBtn" class="w-full bg-navy-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-800 transition-all hover:shadow-lg flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </button>
+                        
+                        <p class="text-sm text-gray-500 text-center">
+                            By submitting this form, you agree to our <a href="../privacy/" class="text-gold-500 hover:underline">Privacy Policy</a>.
+                        </p>
+                    </form>
+                    
+                    <!-- Success Message -->
+                    <div id="successMessage" class="hidden mt-8 p-6 bg-sage/10 border border-sage/20 rounded-2xl success-message">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-sage rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-lg font-semibold text-navy-900 mb-1">Message Sent Successfully!</h3>
+                                <p class="text-gray-600">Thank you for contacting us. One of our tax professionals will get back to you within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Panel -->
+                <div>
+                    <!-- Why Choose Us -->
+                    <div class="bg-white rounded-3xl p-8 shadow-lg mb-8">
+                        <h3 class="font-display text-2xl font-semibold text-navy-900 mb-6">Why Choose Us?</h3>
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy-900 mb-1">IRS Authorized e-file Provider</h4>
+                                    <p class="text-gray-600 text-sm">Officially certified by the IRS for secure electronic filing.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-sage/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy-900 mb-1">Maximum Refund Guarantee</h4>
+                                    <p class="text-gray-600 text-sm">We ensure you get every deduction you're entitled to.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-navy-900/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy-900 mb-1">Bank-Level Security</h4>
+                                    <p class="text-gray-600 text-sm">256-bit SSL encryption protects your sensitive data.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-navy-900 mb-1">Quick Turnaround</h4>
+                                    <p class="text-gray-600 text-sm">Most returns completed within 24-48 hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Info -->
+                    <div class="bg-navy-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                        <div class="absolute inset-0 noise-overlay"></div>
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl"></div>
+                        
+                        <div class="relative">
+                            <h3 class="font-display text-2xl font-semibold mb-6">Office Hours</h3>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                    <span class="text-gray-300">Monday - Friday</span>
+                                    <span class="font-semibold">9:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                    <span class="text-gray-300">Saturday</span>
+                                    <span class="font-semibold">10:00 AM - 4:00 PM</span>
+                                </div>
+                                <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                    <span class="text-gray-300">Sunday</span>
+                                    <span class="text-gray-400">Closed</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-gold-500 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="font-semibold">Tax Season Hours</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">
+                                    During tax season (Jan 15 - Apr 15), we offer extended hours including Sundays. Contact us for availability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="mt-8">
+                        <h3 class="font-display text-lg font-semibold text-navy-900 mb-4">Connect With Us</h3>
+                        <div class="flex items-center gap-4">
+                            <a href="https://www.facebook.com/credencetaxfiling/" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-navy-600 hover:bg-navy-900 hover:text-white transition-all" aria-label="Facebook">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/credence_taxfiling/" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-navy-600 hover:bg-navy-900 hover:text-white transition-all" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="https://linkedin.com/company/credence-taxfiling" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-navy-600 hover:bg-navy-900 hover:text-white transition-all" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="https://wa.me/19162414499" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-navy-600 hover:bg-sage hover:text-white transition-all" aria-label="WhatsApp">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section (Optional - Placeholder) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block text-gold-500 font-semibold tracking-wider uppercase text-sm mb-4">Serving Nationwide</span>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-4">
+                    We Serve Clients Across All 50 States
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    No matter where you're located in the United States, our certified tax professionals are ready to assist you with all your tax needs.
+                </p>
+            </div>
+            
+            <!-- Service Areas Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">California</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Texas</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">New York</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Florida</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Illinois</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">New Jersey</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Washington</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Georgia</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Pennsylvania</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Virginia</span>
+                </div>
+                <div class="bg-cream rounded-xl p-4 text-center">
+                    <span class="text-navy-900 font-medium">Massachusetts</span>
+                </div>
+                <div class="bg-navy-900 rounded-xl p-4 text-center">
+                    <span class="text-gold-500 font-medium">+ All States</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Quick Links -->
+    <section class="py-16 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-display text-2xl md:text-3xl font-semibold text-navy-900 mb-4">
+                            Have Questions Before Reaching Out?
+                        </h2>
+                        <p class="text-gray-600 mb-6">
+                            Check out our frequently asked questions page for quick answers about our services, process, and pricing.
+                        </p>
+                        <a href="../faq/" class="inline-flex items-center gap-2 bg-navy-900 text-white px-6 py-3 rounded-xl font-medium hover:bg-navy-800 transition-all">
+                            View FAQs
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-cream rounded-xl p-4">
+                            <h4 class="font-semibold text-navy-900 mb-1">What documents do I need?</h4>
+                            <p class="text-gray-600 text-sm">W-2s, 1099s, and more...</p>
+                        </div>
+                        <div class="bg-cream rounded-xl p-4">
+                            <h4 class="font-semibold text-navy-900 mb-1">How long does it take?</h4>
+                            <p class="text-gray-600 text-sm">Usually 24-48 hours...</p>
+                        </div>
+                        <div class="bg-cream rounded-xl p-4">
+                            <h4 class="font-semibold text-navy-900 mb-1">What's the deadline?</h4>
+                            <p class="text-gray-600 text-sm">April 15th typically...</p>
+                        </div>
+                        <div class="bg-cream rounded-xl p-4">
+                            <h4 class="font-semibold text-navy-900 mb-1">Is my data secure?</h4>
+                            <p class="text-gray-600 text-sm">256-bit encryption...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <a href="../index.html" class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center">
+                            <span class="font-display text-navy-900 text-xl font-bold">C</span>
+                        </div>
+                        <div>
+                            <span class="font-display text-xl font-semibold text-white">Credence</span>
+                            <span class="block text-xs text-gray-400 tracking-wider uppercase">Taxfiling</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm">
+                        Expert tax filing made simple. Connect with our trusted advisors, upload your documents, and let us handle the rest with guaranteed accuracy.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                            <span class="text-xs text-gray-400 text-center">IRS<br>Approved</span>
+                        </div>
+                        <div class="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                            <span class="text-xs text-gray-400 text-center">BBB<br>A+ Rated</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Individual Services -->
+                <div>
+                    <h4 class="font-display text-lg font-semibold mb-6">Individual Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="../individual-services/#income-tax" class="hover:text-gold-500 transition-colors">US Individual Income Tax</a></li>
+                        <li><a href="../individual-services/#expat-tax" class="hover:text-gold-500 transition-colors">US Expat Tax Returns</a></li>
+                        <li><a href="../individual-services/#itin" class="hover:text-gold-500 transition-colors">ITIN Assistance</a></li>
+                        <li><a href="../individual-services/#consultation" class="hover:text-gold-500 transition-colors">Tax Consultation</a></li>
+                        <li><a href="../individual-services/#fbar" class="hover:text-gold-500 transition-colors">FBAR & FATCA</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Business Services -->
+                <div>
+                    <h4 class="font-display text-lg font-semibold mb-6">Business Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="../business-services/#incorporation" class="hover:text-gold-500 transition-colors">Business Incorporation</a></li>
+                        <li><a href="../business-services/#tax-planning" class="hover:text-gold-500 transition-colors">Business Tax Planning</a></li>
+                        <li><a href="../business-services/#accounting" class="hover:text-gold-500 transition-colors">Business Accounting</a></li>
+                        <li><a href="../business-services/#payroll" class="hover:text-gold-500 transition-colors">Payroll Tax Services</a></li>
+                        <li><a href="../business-services/#audit" class="hover:text-gold-500 transition-colors">IRS Audit Representation</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-display text-lg font-semibold mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li>
+                            <a href="tel:+19162414499" class="flex items-center gap-3 hover:text-gold-500 transition-colors">
+                                <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                                +1 (916) 241-4499
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:wecare@credencetaxfiling.com" class="flex items-center gap-3 hover:text-gold-500 transition-colors">
+                                <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                wecare@credencetaxfiling.com
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-gold-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>United States</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="https://www.facebook.com/credencetaxfiling/" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/credence_taxfiling/" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/credence-taxfiling" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Credence Taxfiling. CIN: U69202TS2025PTC | Reg No: 194424. All rights reserved.
+                    </p>
+                    <div class="flex items-center gap-6 text-sm text-gray-400">
+                        <a href="../privacy/" class="hover:text-gold-500 transition-colors">Privacy Policy</a>
+                        <a href="../terms/" class="hover:text-gold-500 transition-colors">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        
+        function openMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="spinner w-5 h-5 mr-2"></span>
+                <span>Sending...</span>
+            `;
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                // Hide form and show success message
+                contactForm.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset form
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `
+                    <span>Send Message</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                `;
+            }, 1500);
+        });
+        
+        // Form validation styling
+        const formInputs = document.querySelectorAll('.form-input');
+        formInputs.forEach(input => {
+            input.addEventListener('invalid', function() {
+                this.classList.add('border-red-500');
+            });
+            input.addEventListener('input', function() {
+                if (this.validity.valid) {
+                    this.classList.remove('border-red-500');
+                }
+            });
+        });
+        
+        // Phone number formatting
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = `(${value}`;
+                } else if (value.length <= 6) {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+                } else {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+                }
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
