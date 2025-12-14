@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Login | Credence Taxfiling</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config (UNCHANGED) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0A1628',
+              800: '#111D32',
+              700: '#1A2942',
+              600: '#243552',
+            },
+            gold: {
+              500: '#C9A84B',
+              400: '#D4B85C',
+              300: '#E0C96E',
+            },
+            cream: '#FAFAF8',
+            sage: '#4A7C59',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Shared Styles (UNCHANGED) -->
+  <style>
+    * { scroll-behavior: smooth; }
+
+    .form-input {
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #C9A84B;
+      box-shadow: 0 0 0 3px rgba(201, 168, 75, 0.1);
+    }
+  </style>
+</head>
+
+<body class="font-body bg-cream text-navy-900 antialiased">
+
+  <!-- TOP BAR (UNCHANGED) -->
+  <div class="bg-navy-900 text-white py-2 hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
+      <span>Secure Client Portal</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION (UNCHANGED) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+          <span class="font-display text-gold-500 text-xl font-bold">C</span>
+        </div>
+        <div>
+          <span class="font-display text-xl font-semibold text-navy-900">Credence</span>
+          <span class="block text-xs text-navy-600 uppercase tracking-wider">Taxfiling</span>
+        </div>
+      </a>
+    </nav>
+  </header>
+
+  <!-- LOGIN FORM SECTION (CLONED STRUCTURE) -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- LEFT: LOGIN FORM -->
+        <div>
+          <span class="inline-block text-gold-500 font-semibold tracking-wider uppercase text-sm mb-4">
+            Client Access
+          </span>
+
+          <h1 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-6">
+            Login to Your Dashboard
+          </h1>
+
+          <p class="text-gray-600 mb-8 max-w-md">
+            Securely access your documents, uploads, and account information.
+          </p>
+
+          <div id="errorBox" class="hidden mb-6 text-sm text-red-600"></div>
+
+          <form id="loginForm" class="space-y-6 max-w-md">
+
+            <div>
+              <label class="block text-sm font-medium text-navy-900 mb-2">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                required
+                class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none"
+              >
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-navy-900 mb-2">Password</label>
+              <input
+                type="password"
+                id="password"
+                required
+                class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none"
+              >
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-navy-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-800 transition-all hover:shadow-lg"
+            >
+              Login
+            </button>
+
+            <div class="text-sm text-gray-600 text-center space-y-2">
+              <a href="/crm/forgot-password" class="text-gold-500 hover:underline">Forgot password?</a>
+              <p>
+                Don’t have an account?
+                <a href="/crm/signup" class="text-gold-500 hover:underline">Request access</a>
+              </p>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- RIGHT: TRUST PANEL (REUSED) -->
+        <div class="bg-white rounded-3xl p-8 shadow-lg">
+          <h3 class="font-display text-2xl font-semibold text-navy-900 mb-6">
+            Your Data Is Protected
+          </h3>
+
+          <ul class="space-y-5 text-gray-600">
+            <li class="flex gap-3">
+              <span class="text-gold-500">✓</span> Bank-level encryption
+            </li>
+            <li class="flex gap-3">
+              <span class="text-gold-500">✓</span> IRS-authorized e-file provider
+            </li>
+            <li class="flex gap-3">
+              <span class="text-gold-500">✓</span> Private, user-only access
+            </li>
+            <li class="flex gap-3">
+              <span class="text-gold-500">✓</span> Secure document uploads
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIREBASE AUTH -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  firebase.initializeApp({
+    apiKey: "AIzaSyCaF92HIS6Msu4YxYcHDg5iPtCUP1ZGfd8",
+    authDomain: "credence-d18bb.firebaseapp.com",
+    projectId: "credence-d18bb"
+  });
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const errorBox = document.getElementById('errorBox');
+    errorBox.classList.add('hidden');
+
+    try {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      // 🔒 FORCE session persistence
+      await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+      const cred = await auth.signInWithEmailAndPassword(email, password);
+
+      const snap = await db
+        .collection('users')
+        .doc(cred.user.uid)
+        .get();
+
+      const role = snap.exists ? snap.data().role : 'user';
+
+      // 🚀 Redirect AFTER persistence is guaranteed
+      window.location.replace(
+        role === 'admin'
+          ? '/crm/admin/dashboard'
+          : '/crm/app/dashboard'
+      );
+
+    } catch (err) {
+      errorBox.textContent = err.message;
+      errorBox.classList.remove('hidden');
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

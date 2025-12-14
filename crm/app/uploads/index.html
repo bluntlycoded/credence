@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploads | Credence Taxfiling</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0A1628',
+              800: '#111D32',
+              700: '#1A2942',
+              600: '#243552',
+            },
+            gold: {
+              500: '#C9A84B',
+            },
+            cream: '#FAFAF8',
+            sage: '#4A7C59',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .form-input {
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: #C9A84B;
+      box-shadow: 0 0 0 3px rgba(201,168,75,.1);
+    }
+  </style>
+</head>
+
+<body class="font-body bg-cream text-navy-900 antialiased">
+
+  <!-- TOP BAR -->
+  <div class="bg-navy-900 text-white py-2 hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 text-sm flex justify-between">
+      <span>Client Dashboard</span>
+      <button id="logoutBtn" class="hover:text-gold-500">Logout</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+          <span class="font-display text-gold-500 text-xl font-bold">C</span>
+        </div>
+        <div>
+          <span class="font-display text-xl font-semibold">Credence</span>
+          <span class="block text-xs text-navy-600 uppercase tracking-wider">Taxfiling</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="/crm/app/dashboard" class="text-navy-600 hover:text-navy-900">Dashboard</a>
+        <a href="/crm/app/uploads" class="text-navy-900 font-medium">Uploads</a>
+        <a href="/crm/app/profile" class="text-navy-600 hover:text-navy-900">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 space-y-16">
+
+      <!-- HEADER -->
+      <div>
+        <h1 class="font-display text-3xl md:text-4xl font-semibold mb-4">
+          Upload Documents
+        </h1>
+        <p class="text-gray-600 max-w-2xl">
+          Upload tax documents securely. Only you and authorized staff can access them.
+        </p>
+      </div>
+
+      <!-- UPLOAD FORM -->
+      <div class="bg-white rounded-3xl p-8 shadow-lg max-w-2xl">
+        <form id="uploadForm" class="space-y-6">
+          <div>
+            <label class="block text-sm font-medium mb-2">Select File</label>
+            <input type="file" id="fileInput" required
+              class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Description (optional)</label>
+            <input type="text" id="description"
+              class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none">
+          </div>
+
+          <button class="bg-navy-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-800 transition">
+            Upload
+          </button>
+
+          <p id="statusText" class="text-sm text-gray-600"></p>
+        </form>
+      </div>
+
+      <!-- FILE LIST -->
+      <div>
+        <h2 class="font-display text-2xl font-semibold mb-6">
+          Your Files
+        </h2>
+        <div id="fileList" class="space-y-4 max-w-3xl">
+          <p class="text-gray-500">No files uploaded yet.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+  <script>
+    firebase.initializeApp({
+       apiKey: "AIzaSyCaF92HIS6Msu4YxYcHDg5iPtCUP1ZGfd8",
+    authDomain: "credence-d18bb.firebaseapp.com",
+    projectId: "credence-d18bb",
+    storageBucket: "credence-d18bb.firebasestorage.app"
+    });
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    const fileList = document.getElementById('fileList');
+    const statusText = document.getElementById('statusText');
+
+    auth.onAuthStateChanged(async user => {
+      if (!user) {
+        location.href = '/crm/login';
+        return;
+      }
+      loadFiles(user.uid);
+    });
+
+    async function loadFiles(uid) {
+      const snap = await db.collection('files')
+        .where('ownerId', '==', uid)
+        .orderBy('uploadedAt', 'desc')
+        .get();
+
+      fileList.innerHTML = '';
+
+      if (snap.empty) {
+        fileList.innerHTML = '<p class="text-gray-500">No files uploaded yet.</p>';
+        return;
+      }
+
+      snap.forEach(doc => {
+        const f = doc.data();
+        const el = document.createElement('div');
+        el.className = 'bg-white rounded-2xl p-4 shadow-sm flex justify-between items-center';
+
+        el.innerHTML = `
+          <div>
+            <p class="font-medium">${f.fileName}</p>
+            <p class="text-sm text-gray-500">${f.description || ''}</p>
+          </div>
+          <a href="${f.downloadURL}" target="_blank"
+             class="text-gold-500 text-sm font-medium hover:underline">
+            View
+          </a>
+        `;
+        fileList.appendChild(el);
+      });
+    }
+
+    document.getElementById('uploadForm').addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const file = document.getElementById('fileInput').files[0];
+      const desc = document.getElementById('description').value;
+      const user = auth.currentUser;
+
+      if (!file || !user) return;
+
+      statusText.textContent = 'Uploading…';
+
+      const ref = storage.ref(`uploads/users/${user.uid}/${Date.now()}_${file.name}`);
+      await ref.put(file);
+      const url = await ref.getDownloadURL();
+
+      await db.collection('files').add({
+        ownerId: user.uid,
+        fileName: file.name,
+        description: desc,
+        downloadURL: url,
+        uploadedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      statusText.textContent = 'Upload complete.';
+      document.getElementById('uploadForm').reset();
+      loadFiles(user.uid);
+    });
+
+    document.getElementById('logoutBtn').onclick = async () => {
+      await auth.signOut();
+      location.href = '/crm/login';
+    };
+  </script>
+
+</body>
+</html>

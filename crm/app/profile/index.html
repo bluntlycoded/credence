@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | Credence Taxfiling</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0A1628',
+              800: '#111D32',
+              700: '#1A2942',
+              600: '#243552',
+            },
+            gold: {
+              500: '#C9A84B',
+            },
+            cream: '#FAFAF8',
+            sage: '#4A7C59',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .form-input {
+      transition: all .3s ease;
+    }
+    .form-input:focus {
+      border-color: #C9A84B;
+      box-shadow: 0 0 0 3px rgba(201,168,75,.1);
+    }
+  </style>
+</head>
+
+<body class="font-body bg-cream text-navy-900 antialiased">
+
+  <!-- TOP BAR -->
+  <div class="bg-navy-900 text-white py-2 hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 text-sm flex justify-between">
+      <span>Client Dashboard</span>
+      <button id="logoutBtn" class="hover:text-gold-500">Logout</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+          <span class="font-display text-gold-500 text-xl font-bold">C</span>
+        </div>
+        <div>
+          <span class="font-display text-xl font-semibold">Credence</span>
+          <span class="block text-xs text-navy-600 uppercase tracking-wider">Taxfiling</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="/crm/app/dashboard" class="text-navy-600 hover:text-navy-900">Dashboard</a>
+        <a href="/crm/app/uploads" class="text-navy-600 hover:text-navy-900">Uploads</a>
+        <a href="/crm/app/profile" class="text-navy-900 font-medium">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PROFILE -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 space-y-16">
+
+      <!-- HEADER -->
+      <div>
+        <h1 class="font-display text-3xl md:text-4xl font-semibold mb-4">
+          Your Profile
+        </h1>
+        <p class="text-gray-600 max-w-2xl">
+          Manage your personal information associated with your account.
+        </p>
+      </div>
+
+      <!-- PROFILE FORM -->
+      <div class="bg-white rounded-3xl p-8 shadow-lg max-w-2xl">
+        <form id="profileForm" class="space-y-6">
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">First Name</label>
+              <input type="text" id="firstName"
+                class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Last Name</label>
+              <input type="text" id="lastName"
+                class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Email</label>
+            <input type="email" id="email" disabled
+              class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Phone</label>
+            <input type="tel" id="phone"
+              class="form-input w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none">
+          </div>
+
+          <button
+            type="submit"
+            class="bg-navy-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-800 transition">
+            Save Changes
+          </button>
+
+          <p id="statusText" class="text-sm text-gray-600"></p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyCaF92HIS6Msu4YxYcHDg5iPtCUP1ZGfd8",
+    authDomain: "credence-d18bb.firebaseapp.com",
+    projectId: "credence-d18bb"
+    });
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const statusText = document.getElementById('statusText');
+
+    auth.onAuthStateChanged(async user => {
+      if (!user) {
+        location.href = '/crm/login';
+        return;
+      }
+
+      document.getElementById('email').value = user.email;
+
+      const doc = await db.collection('users').doc(user.uid).get();
+      if (doc.exists) {
+        const d = doc.data();
+        firstName.value = d.firstName || '';
+        lastName.value = d.lastName || '';
+        phone.value = d.phone || '';
+      }
+    });
+
+    document.getElementById('profileForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      statusText.textContent = 'Saving…';
+
+      const user = auth.currentUser;
+
+      await db.collection('users').doc(user.uid).set({
+        firstName: firstName.value,
+        lastName: lastName.value,
+        phone: phone.value,
+        email: user.email
+      }, { merge: true });
+
+      statusText.textContent = 'Profile updated successfully.';
+    });
+
+    document.getElementById('logoutBtn').onclick = async () => {
+      await auth.signOut();
+      location.href = '/crm/login';
+    };
+  </script>
+
+</body>
+</html>

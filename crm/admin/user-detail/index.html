@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Detail | Admin</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0A1628',
+              800: '#111D32',
+              700: '#1A2942',
+              600: '#243552',
+            },
+            gold: { 500: '#C9A84B' },
+            cream: '#FAFAF8',
+            sage: '#4A7C59',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="font-body bg-cream text-navy-900 antialiased">
+
+  <!-- TOP BAR -->
+  <div class="bg-navy-900 text-white py-2 hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 text-sm flex justify-between">
+      <span>Admin · User Detail</span>
+      <button id="logoutBtn" class="hover:text-gold-500">Logout</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="crm/admin/dashboard" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+          <span class="font-display text-gold-500 text-xl font-bold">C</span>
+        </div>
+        <div>
+          <span class="font-display text-xl font-semibold">Credence</span>
+          <span class="block text-xs text-navy-600 uppercase tracking-wider">Taxfiling</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="/crm/admin/dashboard" class="text-navy-600 hover:text-navy-900">Dashboard</a>
+        <a href="/crm/admin/users" class="text-navy-900 font-medium">Users</a>
+        <a href="/crm/admin/files" class="text-navy-600 hover:text-navy-900">Files</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 space-y-16">
+
+      <!-- USER HEADER -->
+      <div>
+        <h1 id="userName" class="font-display text-3xl md:text-4xl font-semibold mb-2">
+          User
+        </h1>
+        <p id="userEmail" class="text-gray-600"></p>
+      </div>
+
+      <!-- USER INFO -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <p class="text-sm text-gray-500 mb-1">Phone</p>
+          <p id="userPhone" class="font-medium">—</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <p class="text-sm text-gray-500 mb-1">Account Created</p>
+          <p id="userCreated" class="font-medium">—</p>
+        </div>
+      </div>
+
+      <!-- USER FILES -->
+      <div>
+        <h2 class="font-display text-2xl font-semibold mb-6">
+          Uploaded Files
+        </h2>
+
+        <div id="fileList" class="space-y-4 max-w-4xl">
+          <p class="text-gray-500">Loading files…</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    firebase.initializeApp({
+    apiKey: "AIzaSyCaF92HIS6Msu4YxYcHDg5iPtCUP1ZGfd8",
+    authDomain: "credence-d18bb.firebaseapp.com",
+    projectId: "credence-d18bb"
+    });
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const params = new URLSearchParams(location.search);
+    const userId = params.get('uid');
+
+    if (!userId) location.href = '/crm/admin/users';
+
+    auth.onAuthStateChanged(async admin => {
+      if (!admin) {
+        location.href = '/crm/login';
+        return;
+      }
+
+      const adminDoc = await db.collection('users').doc(admin.uid).get();
+      if (!adminDoc.exists || adminDoc.data().role !== 'admin') {
+        location.href = '/crm/app/dashboard';
+        return;
+      }
+
+      loadUser();
+      loadFiles();
+    });
+
+    async function loadUser() {
+      const doc = await db.collection('users').doc(userId).get();
+      if (!doc.exists) return;
+
+      const u = doc.data();
+      document.getElementById('userName').textContent =
+        `${u.firstName || ''} ${u.lastName || ''}`.trim() || 'User';
+      document.getElementById('userEmail').textContent = u.email || '';
+      document.getElementById('userPhone').textContent = u.phone || '—';
+
+      if (u.createdAt) {
+        document.getElementById('userCreated').textContent =
+          u.createdAt.toDate().toLocaleDateString();
+      }
+    }
+
+    async function loadFiles() {
+      const snap = await db.collection('files')
+        .where('ownerId', '==', userId)
+        .orderBy('uploadedAt', 'desc')
+        .get();
+
+      const list = document.getElementById('fileList');
+      list.innerHTML = '';
+
+      if (snap.empty) {
+        list.innerHTML = '<p class="text-gray-500">No files uploaded.</p>';
+        return;
+      }
+
+      snap.forEach(doc => {
+        const f = doc.data();
+        const el = document.createElement('div');
+        el.className = 'bg-white rounded-2xl p-4 shadow-sm flex justify-between items-center';
+
+        el.innerHTML = `
+          <div>
+            <p class="font-medium">${f.fileName}</p>
+            <p class="text-sm text-gray-500">
+              ${f.uploadedAt?.toDate().toLocaleDateString() || ''}
+            </p>
+          </div>
+          <a href="${f.downloadURL}" target="_blank"
+             class="text-gold-500 text-sm font-medium hover:underline">
+            View
+          </a>
+        `;
+
+        list.appendChild(el);
+      });
+    }
+
+    document.getElementById('logoutBtn').onclick = async () => {
+      await auth.signOut();
+      location.href = '/crm/login';
+    };
+  </script>
+
+</body>
+</html>
